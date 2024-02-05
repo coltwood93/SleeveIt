@@ -17,7 +17,7 @@ def get_recommendation():
         data = response.json()
         temperature_kelvin = data["main"]["temp"]
         temperature_fahrenheit = (temperature_kelvin - 273.15)*9/5 + 32
-        recommendation = "short sleeves" if temperature_fahrenheit > 65 else "long sleeves"
+        recommendation = "short sleeves" if temperature_fahrenheit > 70 else "long sleeves"
         return jsonify({'temperature': temperature_fahrenheit, 'recommendation': recommendation})
     except requests.exceptions.RequestException as e:
         return jsonify({'error': 'Invalid request format'}), 400

@@ -1,13 +1,19 @@
 <script setup>
 import SearchBar from './SearchBar.vue';
 import router from '../router'
+import { useRecommendationStore } from '../stores/recommendationStore';
+
+const store = useRecommendationStore();
 
 const handleRecommendation = async (location) => {
+  store.setLocation(location);
+
   const response = await fetch(`http://127.0.0.1:5000/get_recommendation?location=${location}`, { // Use GET and query parameters
     method: 'GET',
   });
   const data = await response.json();
-  router.push({ path: '/recommendation', query: { ...data } });
+  store.setRecommendationData(data);
+  router.push({ path: '/recommendation'});
 };
 </script>
 

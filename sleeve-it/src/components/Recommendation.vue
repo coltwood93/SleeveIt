@@ -1,5 +1,12 @@
 <script setup>
-    defineProps(['location', 'temperature', 'recommendation']);
+    import { useRecommendationStore } from '../stores/recommendationStore';
+    import { computed } from 'vue';
+
+    const store = useRecommendationStore();
+
+    const temperature = computed(() => store.temperature);
+    const recommendation = computed(() => store.recommendation);
+    const location = computed(() => store.location);
 </script>
 
 <template>

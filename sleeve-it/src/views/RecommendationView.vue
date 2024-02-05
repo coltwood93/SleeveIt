@@ -4,7 +4,9 @@
 </script>
 
 <template>
-  <Recommendation :location="recommendationData.location" :temperature="recommendationData.temperature" :recommendation="recommendationData.recommendation" />
+  <div>
+    <Recommendation />
+  </div>
 </template>
 
 <style>
