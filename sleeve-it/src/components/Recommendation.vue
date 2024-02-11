@@ -23,13 +23,22 @@
         return 'normal-temperature';
       }
     };
+
+    // Capitalize the first letter of each word in location
+    const formattedLocation = computed(() => {
+      return location.value
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      }
+    );
 </script>
 
 <template>
   <div>
-    <h2>Recommendation</h2>
+    <h2><span style="font-weight: bold;">Recommendation</span></h2>
     <p>
-      The current temperature in <span style="font-weight: bold;">{{ location }}</span>
+      The current temperature in <span style="font-weight: bold;">{{ formattedLocation }}</span>
         is <span :class="getTemperatureClass(temperature)">{{ roundTemperature(temperature) }}</span>
         degrees Fahrenheit.
     </p>

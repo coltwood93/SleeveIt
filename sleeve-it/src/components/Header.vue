@@ -19,7 +19,7 @@ const handleRecommendation = async (location) => {
 
 <template>
   <div class="greetings">
-    <h1 class="green">Sleeve It or Leave It?</h1>
+    <h1 class="purple">Sleeve It or Leave It?</h1>
     <SearchBar @get-recommendation="handleRecommendation" />
   </div>
 </template>

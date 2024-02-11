@@ -1,16 +1,19 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from dotenv import load_dotenv
+from os import environ
 import requests
 
 app = Flask(__name__)
+load_dotenv()
 CORS(app)
 
-API_KEY = "4f36787a2ef947e2e69b1012c3809efd"
+SECRET_KEY = environ.get('API_KEY')
 
 @app.route("/get_recommendation", methods=["GET"])
 def get_recommendation():
     location = request.args.get("location")  # Retrieve location from query parameters
-    api_url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={API_KEY}"
+    api_url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={SECRET_KEY}"
 
     try:
         response = requests.get(api_url)

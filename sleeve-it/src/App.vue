@@ -5,15 +5,16 @@ import Header from './components/Header.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="./assets/Sleeve-It Logo.png" width="125" height="125" />
 
     <div class="wrapper">
       <Header />
     </div>
   </header>
-  
-  <RouterView />
-  
+
+  <div class="center">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
@@ -48,6 +49,28 @@ header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
