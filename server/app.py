@@ -1,3 +1,5 @@
+"""Backend Flask server that handles API calls and recommendation logic"""
+
 from os import environ
 from flask import Flask, jsonify, request
 from flask_cors import CORS
