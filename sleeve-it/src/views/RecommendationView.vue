@@ -4,17 +4,24 @@
 </script>
 
 <template>
-  <div>
+  <div class="center">
     <Recommendation />
   </div>
 </template>
 
 <style>
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 1024px) {
-  .about {
+  .center {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 }
 </style>
