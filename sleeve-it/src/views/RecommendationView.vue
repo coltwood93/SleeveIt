@@ -1,11 +1,11 @@
 <script setup>
   defineProps(['recommendationData']);
-  import Recommendation from '../components/Recommendation.vue'
+  import RecommendationComponent from '../components/RecommendationComponent.vue'
 </script>
 
 <template>
   <div class="center">
-    <Recommendation />
+    <RecommendationComponent />
   </div>
 </template>
 

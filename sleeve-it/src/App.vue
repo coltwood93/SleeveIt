@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import Header from './components/Header.vue'
+import HeaderComponent from './components/HeaderComponent.vue'
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import Header from './components/Header.vue'
     <img alt="Vue logo" class="logo" src="./assets/Sleeve-It Logo.png" width="125" height="125" />
 
     <div class="wrapper">
-      <Header />
+      <HeaderComponent />
     </div>
   </header>
 
