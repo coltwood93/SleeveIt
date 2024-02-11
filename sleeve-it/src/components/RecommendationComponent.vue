@@ -1,37 +1,39 @@
 <script setup>
-    import { useRecommendationStore } from '../stores/recommendationStore';
-    import { computed } from 'vue';
+  import { useRecommendationStore } from '../stores/recommendationStore';
+  import { computed } from 'vue';
 
-    const store = useRecommendationStore();
+  // pinia store for state management
+  const store = useRecommendationStore();
 
-    const temperature = computed(() => store.temperature);
-    const recommendation = computed(() => store.recommendation);
-    const location = computed(() => store.location);
+  // get values from state store
+  const temperature = computed(() => store.temperature);
+  const recommendation = computed(() => store.recommendation);
+  const location = computed(() => store.location);
 
-    // Rounds the temperature to two decimal places
-    const roundTemperature = (temp) => {
-      return parseFloat(temp).toFixed(2);
+  // Rounds the temperature to two decimal places
+  const roundTemperature = (temp) => {
+    return parseFloat(temp).toFixed(2);
+  }
+
+  // Determine CSS class based on value of temperature
+  const getTemperatureClass = (temp) => {
+    if (temp < 55) {
+      return 'cold-temperature';
+    } else if (temp > 75) {
+      return 'hot-temperature';
+    } else {
+      return 'normal-temperature';
     }
+  };
 
-    // Determine CSS class based on value of temperature
-    const getTemperatureClass = (temp) => {
-      if (temp < 55) {
-        return 'cold-temperature';
-      } else if (temp > 75) {
-        return 'hot-temperature';
-      } else {
-        return 'normal-temperature';
-      }
-    };
-
-    // Capitalize the first letter of each word in location
-    const formattedLocation = computed(() => {
-      return location.value
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-      }
-    );
+  // Capitalize the first letter of each word in location
+  const formattedLocation = computed(() => {
+    return location.value
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    }
+  );
 </script>
 
 <template>
@@ -48,12 +50,12 @@
 
 <style>
 .cold-temperature {
-  color: blue;
+  color: rgb(85, 85, 255);
   font-weight: bold;
 }
 
 .hot-temperature {
-  color: red;
+  color: rgb(247, 89, 89);
   font-weight: bold;
 }
 

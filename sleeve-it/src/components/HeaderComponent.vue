@@ -3,16 +3,24 @@ import SearchBar from './SearchBar.vue';
 import router from '../router'
 import { useRecommendationStore } from '../stores/recommendationStore';
 
+// pinia store for state management
 const store = useRecommendationStore();
 
+// send request to backend when user searches location
 const handleRecommendation = async (location) => {
+  // update state store
   store.setLocation(location);
 
+  // request recommendation from backend
   const response = await fetch(`http://127.0.0.1:5000/get_recommendation?location=${location}`, {
     method: 'GET',
   });
   const data = await response.json();
+
+  // update state store
   store.setRecommendationData(data);
+
+  // display recommendation to user
   router.push({ path: '/recommendation'});
 };
 </script>
