@@ -17,9 +17,9 @@
 
   // Determine CSS class based on value of temperature
   const getTemperatureClass = (temp) => {
-    if (temp < 55) {
+    if (temp < 60) {
       return 'cold-temperature';
-    } else if (temp > 75) {
+    } else if (temp > 80) {
       return 'hot-temperature';
     } else {
       return 'normal-temperature';
@@ -38,13 +38,14 @@
 
 <template>
   <div>
-    <h2><span style="font-weight: bold;">Recommendation</span></h2>
+    <h2><span style="font-weight: bold;">Recommendation</span> for
+     <span style="font-weight: bold;">{{ formattedLocation }}</span></h2>
     <p>
-      The current temperature in <span style="font-weight: bold;">{{ formattedLocation }}</span>
-        is <span :class="getTemperatureClass(temperature)">{{ roundTemperature(temperature) }}</span>
-        degrees Fahrenheit.
+      The current temperature is
+       <span :class="getTemperatureClass(temperature)">{{ roundTemperature(temperature) }}</span>
+       degrees Fahrenheit.
     </p>
-    <p>I recommend wearing <span style="font-weight: bold;">{{ recommendation }}</span>!</p>
+    <p>I recommend wearing <span style="font-weight: bold; color: rgb(175, 134, 248)">{{ recommendation }}</span>!</p>
   </div>
 </template>
 

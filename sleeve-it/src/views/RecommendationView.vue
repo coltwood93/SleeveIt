@@ -1,5 +1,4 @@
 <script setup>
-  defineProps(['recommendationData']);
   import RecommendationComponent from '../components/RecommendationComponent.vue'
 </script>
 
@@ -10,7 +9,6 @@
 </template>
 
 <style>
-
 .center {
   display: flex;
   justify-content: center;
