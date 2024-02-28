@@ -30,8 +30,20 @@ def get_recommendation():
         # recommendation logic
         recommendation = "short sleeves" if temperature_fahrenheit > 69 else "long sleeves"
 
+        #parse additional fields from JSON
+        feelslike = (data["main"]["feels_like"] - 273.15)*9/5 + 32 # feel in fahrenheit
+        windspeed = data["wind"]["speed"]   # meters/sec
+        humidity = data["main"]["humidity"] # humidity %
+
         # return data to frontend
-        return jsonify({'temperature': temperature_fahrenheit, 'recommendation': recommendation})
+        return jsonify({
+            'temperature': temperature_fahrenheit,
+            'recommendation': recommendation,
+            'feelslike': feelslike,
+            'windspeed': windspeed,
+            'humidity': humidity
+            }
+        )
     except requests.exceptions.RequestException:
         return jsonify({'error': 'Invalid request format'}), 400
 

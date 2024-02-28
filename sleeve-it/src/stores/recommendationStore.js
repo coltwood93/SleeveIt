@@ -13,6 +13,9 @@ export const useRecommendationStore = defineStore('recommendationStore', {
     setRecommendationData(data) {
       this.temperature = data.temperature;
       this.recommendation = data.recommendation;
+      this.feelslike = data.feelslike
+      this.humidity = data.humidity
+      this.windspeed = data.windspeed
     },
   },
 });

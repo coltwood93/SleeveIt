@@ -1,4 +1,5 @@
 <script setup>
+  import WeatherDropdown from './WeatherDropdown.vue'
   import { useRecommendationStore } from '../stores/recommendationStore';
   import { computed } from 'vue';
 
@@ -46,6 +47,8 @@
        degrees Fahrenheit.
     </p>
     <p>I recommend wearing <span style="font-weight: bold; color: rgb(175, 134, 248)">{{ recommendation }}</span>!</p>
+    <br>
+    <WeatherDropdown />
   </div>
 </template>
 
