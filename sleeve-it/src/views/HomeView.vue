@@ -2,7 +2,14 @@
 <template>
   <div>
     <h2>Welcome to Sleeve It or Leave It!</h2>
-    <p>Enter a city name in the search bar to get a sleeve recommendation.</p>
-    <p>The city's current temperature and a sleeve length recommendation will be provided.</p>
+    <p>
+      Search a city name in the search bar to instantly receive the 
+      city's current temperature and a sleeve length recommendation.
+    </p>
+    <br>
+    <p>
+      If you want a little more weather info, you can expand the results to 
+      see everything you need to make an informed decision on your day's attire! 
+    </p>
   </div>
 </template>

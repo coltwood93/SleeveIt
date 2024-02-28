@@ -5,8 +5,10 @@ import HeaderComponent from './components/HeaderComponent.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/Sleeve-It Logo.png" width="125" height="125" />
-
+    <RouterLink to="/">
+      <img alt="Vue logo" class="logo" src="./assets/Sleeve-It Logo.png" width="125" height="125" />
+    </RouterLink>
+    
     <div class="wrapper">
       <HeaderComponent />
     </div>
