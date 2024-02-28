@@ -37,7 +37,7 @@
     <button @click="toggleDropdown">More Weather Info</button>
     <div v-if="showDropdown" class="dropdown-content">
       
-      <p>Feels Like: <span :class="getTemperatureClass(temperature)">{{ roundTemperature(feelslike) }}</span> degrees Fahrenheit</p>
+      <p>Feels Like: <span :class="getTemperatureClass(feelslike)">{{ roundTemperature(feelslike) }}</span> degrees Fahrenheit</p>
       <p>Wind speed: <span style="font-weight: bold; color: rgb(175, 134, 248)">{{ windspeed }}</span> meters/second</p>
       <p>Humidity: <span style="font-weight: bold; color: rgb(175, 134, 248)">{{ humidity }}%</span></p>
 
