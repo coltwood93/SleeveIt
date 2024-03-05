@@ -19,25 +19,29 @@
 
   // send request to backend when user searches location
   const requestRandomLocation = async () => {
+
+    console.log(`sending request to microservice`)
+
     // request recommendation from backend
     const response = await fetch(`http://127.0.0.1:5001/cities`, {
-      method: 'GET',
+      method: 'GET'
     });
 
     const data = await response.json();
+    console.log(`received from microservice: `,data)
 
     // set search location
-    location.value = `${data.city}, ${data.state}`
+    location.value = `${data.city}, ${data.state}`;
 
     // initiate search
-    getRecommendation
+    getRecommendation()
   };
 </script>
 
 <template>
   <div>
     <input type="text" placeholder="Enter city name" v-model="location" @keyup.enter="getRecommendation">
-    <button @click="getRecommendation">Get Recommendation</button>
+    <button @click="getRecommendation">Search</button>
     <br>
     <button @click="requestRandomLocation">Random City</button>
     <button @click="clearSearch">Clear</button>
