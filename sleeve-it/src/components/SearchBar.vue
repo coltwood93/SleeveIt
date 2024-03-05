@@ -17,6 +17,21 @@
     }
   };
 
+  // send request to backend when user searches location
+  const requestRandomLocation = async () => {
+    // request recommendation from backend
+    const response = await fetch(`http://127.0.0.1:5001/cities`, {
+      method: 'GET',
+    });
+
+    const data = await response.json();
+
+    // set search location
+    location.value = `${data.city}, ${data.state}`
+
+    // initiate search
+    getRecommendation
+  };
 </script>
 
 <template>
@@ -24,6 +39,7 @@
     <input type="text" placeholder="Enter city name" v-model="location" @keyup.enter="getRecommendation">
     <button @click="getRecommendation">Get Recommendation</button>
     <br>
+    <button @click="requestRandomLocation">Random City</button>
     <button @click="clearSearch">Clear</button>
   </div>
 </template>
