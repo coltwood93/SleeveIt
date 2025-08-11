@@ -12,18 +12,9 @@ api = Flask(__name__)
 def get_cities():
     with open("./cities.json",'r') as file:
         cities = json.load(file)
-        keys = list(cities.keys())
-        rand_key = int(random.random() * 1000 % 51)        
-        state = (keys[rand_key])
-        #print(state)
-        city = (cities[state])
-        rand_city = int(random.random() * 1000 % len(city))
-        location = city[rand_city]
-        #print(location)
-        response = {"city":location, "state":state}
-        #print(response)
-        #response_json = json.dumps(response)
-        #print(response_json)
+        state = random.choice(list(cities.keys()))
+        city = random.choice(cities[state])
+        response = {"city":city, "state":state}
     return json.dumps(response)
 
 if __name__ == '__main__':
