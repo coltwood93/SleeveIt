@@ -25,7 +25,7 @@ class AppTestCase(unittest.TestCase):
         }
         mock_get.return_value = mock_response
 
-        with patch.dict('os.environ', {'SLEEVE_THRESHOLD_F': '69'}):
+        with patch('server.app.SLEEVE_THRESHOLD_F', 69):
             response = self.app.get('/get_recommendation?location=test')
             data = response.get_json()
 
