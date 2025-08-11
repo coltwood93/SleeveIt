@@ -12,7 +12,10 @@ CORS(app)
 
 SECRET_KEY = environ.get('API_KEY')     # get API Key from .env file
 # Get temperature threshold from environment variable, default to 69 if not set
-SLEEVE_THRESHOLD_F = int(environ.get('SLEEVE_THRESHOLD_F', 69))
+try:
+    SLEEVE_THRESHOLD_F = int(environ.get('SLEEVE_THRESHOLD_F', 69))
+except ValueError:
+    SLEEVE_THRESHOLD_F = 69
 
 @app.route("/get_recommendation", methods=["GET"])
 def get_recommendation():
