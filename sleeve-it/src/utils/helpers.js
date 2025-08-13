@@ -5,9 +5,12 @@ export const roundTemperature = (temp) => {
 
 // Determine CSS class based on value of temperature
 export const getTemperatureClass = (temp) => {
-  if (temp < 60) {
+  const COLD_THRESHOLD = 60;
+  const HOT_THRESHOLD = 80;  
+  
+  if (temp < COLD_THRESHOLD) {
     return 'cold-temperature';
-  } else if (temp > 80) {
+  } else if (temp > HOT_THRESHOLD) {
     return 'hot-temperature';
   } else {
     return 'normal-temperature';
