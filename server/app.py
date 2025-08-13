@@ -62,6 +62,10 @@ def get_recommendation():
             return jsonify({'error': f"An error occurred: {err}"}), err.response.status_code
     except requests.exceptions.RequestException as err:
         return jsonify({'error': f'An error occurred: {err}'}), 400
+    except (KeyError, TypeError) as err:
+        return jsonify({'error': f'An error occurred parsing the weather data: {err}'}), 500
+    except Exception as err:
+        return jsonify({'error': f'An unexpected error occurred: {err}'}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)

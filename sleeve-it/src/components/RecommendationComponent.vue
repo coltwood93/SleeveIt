@@ -2,6 +2,7 @@
   import WeatherDropdown from './WeatherDropdown.vue'
   import { useRecommendationStore } from '../stores/recommendationStore';
   import { computed } from 'vue';
+  import { roundTemperature, getTemperatureClass } from '../utils/helpers';
 
   // pinia store for state management
   const store = useRecommendationStore();
@@ -10,22 +11,6 @@
   const temperature = computed(() => store.temperature);
   const recommendation = computed(() => store.recommendation);
   const location = computed(() => store.location);
-
-  // Rounds the temperature to two decimal places
-  const roundTemperature = (temp) => {
-    return parseFloat(temp).toFixed(2);
-  }
-
-  // Determine CSS class based on value of temperature
-  const getTemperatureClass = (temp) => {
-    if (temp < 60) {
-      return 'cold-temperature';
-    } else if (temp > 80) {
-      return 'hot-temperature';
-    } else {
-      return 'normal-temperature';
-    }
-  };
 
   // Capitalize the first letter of each word in location
   const formattedLocation = computed(() => {
