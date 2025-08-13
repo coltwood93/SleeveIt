@@ -8,7 +8,7 @@ from flask import Flask, json
 
 api = Flask(__name__)
 
-with open("microservice/cities.json",'r') as file:
+with open(os.path.join(os.path.dirname(__file__), 'cities.json'), 'r') as file:
     cities = json.load(file)
 
 @api.route('/cities', methods=['GET'])
