@@ -56,6 +56,16 @@ To get a local copy up and running, follow these simple steps.
     SLEEVE_THRESHOLD_F=72
     ```
 
+### Obtaining an API Key
+
+This project requires a free API key from [OpenWeatherMap](https://openweathermap.org/appid). Follow these steps to get your key:
+
+1.  **Go to the OpenWeatherMap website** and create a free account.
+2.  **Navigate to the "API keys" tab** in your user dashboard.
+3.  **Generate a new key** (or use the default key provided).
+
+It may take a few minutes for your new API key to become active.
+
 ### Running the Application
 
 1.  **Start the microservice**

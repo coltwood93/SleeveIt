@@ -20,15 +20,12 @@
   // send request to backend when user searches location
   const requestRandomLocation = async () => {
 
-    console.log(`sending request to microservice`)
-
     // request recommendation from backend
-    const response = await fetch(`http://127.0.0.1:5001/cities`, {
+    const response = await fetch(`${import.meta.env.VITE_MICROSERVICE_URL}/cities`, {
       method: 'GET'
     });
 
     const data = await response.json();
-    console.log(`received from microservice: `,data)
 
     // set search location
     location.value = `${data.city}, ${data.state}`;

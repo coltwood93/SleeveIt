@@ -12,7 +12,7 @@ const handleRecommendation = async (location) => {
   store.setLocation(location);
 
   // request recommendation from backend
-  const response = await fetch(`http://127.0.0.1:5000/get_recommendation?location=${location}`, {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get_recommendation?location=${location}`, {
     method: 'GET',
   });
   const data = await response.json();
